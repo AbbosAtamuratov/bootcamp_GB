@@ -1,7 +1,7 @@
 ﻿namespace Client{
 class Program{
-    public static void Main(string[] args){
-        
+    static void Main(string[] args){
+        OurClient client = new OurClient();
     }
 }
 }

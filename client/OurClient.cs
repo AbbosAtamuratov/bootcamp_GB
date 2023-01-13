@@ -7,19 +7,20 @@ namespace Client
 {
     class OurClient{
         private TcpClient _client;
-        private StreamWriter _reader;
+        private StreamWriter _writer;
 
         public OurClient(){
-            _client =  new TcpClient("127.0.0.1", 555);
-            _reader = new StreamWriter(_client.GetStream(), Encoding.UTF8);
+            _client =  new TcpClient("127.0.0.1", 5555);
+            _writer = new StreamWriter(_client.GetStream(), Encoding.UTF8);
+            HandleCommunication();
         }
 
         void HandleCommunication(){
             while (true){
                 Console.WriteLine("> ");
                 string msg = Console.ReadLine();
-                _reader.WriteLine(msg);
-                _reader.Flush(); // 47-01
+                _writer.WriteLine(msg);
+                _writer.Flush(); // 47-01
             }
         }
         internal static void Idle()
